@@ -6,13 +6,14 @@
 
 ```typescript
 /**
-   * Register a command to the welcome page.
-   *
-   * @param label Label of the command.
-   * @param command Identifier of a command to run on click.
-   * @param iconId Icon ID, like 'c', 'cpp'.
-   * @param order View Sorting.
-   * @return Disposable that unregisters the command.
-*/
-export function registerToWelcomePage(label: string, command: string, iconId: string, order?: number): Disposable;
+ * Register a command to the welcome page.
+ *
+ * @param label Label of the command.
+ * @param command Identifier of a command to run on click.
+ * @param iconPath: The icon path for command, which will show with the label.
+ * @param order List sort order.
+ * @return Disposable which unregisters the command from welcome page.
+ */
+export function registerToWelcomePage(label: string, command: string, iconPath: { dark: string; light: string } | string, order?: number): Disposable;
+
 ```

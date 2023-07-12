@@ -14,15 +14,15 @@ export class Backend extends AbstractBackend {
     async init(): Promise<void> {
 
         // @ts-ignore
-        codearts.window.registerToWelcomePage('class Welcome Page', 'cpp-build-tool.new-source-file', 'c');
+        codearts.window.registerToWelcomePage('class Welcome Page', 'cpp-build-tool.new-source-file', 'resources/icons/huaweiCpp.png');
 
         this.register();
 
         // @ts-ignore
-        codearts.window.registerToWelcomePage('Java Welcome Page', 'workbench.action.openProjectWizard', 'java', 2);
+        codearts.window.registerToWelcomePage('Java Welcome Page', 'workbench.action.openProjectWizard', 'resources/icons/logo.png', 2);
 
         // @ts-ignore
-        codearts.window.registerToWelcomePage('c Welcome Page', 'cpp-build-tool.new-class', 'c');
+        codearts.window.registerToWelcomePage('c Welcome Page', 'cpp-build-tool.new-class', 'resources/icons/logo.png');
     }
 
     public async run(): Promise<void> {
@@ -42,7 +42,10 @@ export class Backend extends AbstractBackend {
     @expose('register')
     public register() {
         // @ts-ignore
-        this.dispose = codearts.window.registerToWelcomePage('C/C++ Welcome Page', 'cpp.project.wizard.welcome', 'cpp', 5);
+        this.dispose = codearts.window.registerToWelcomePage('C/C++ Welcome Page', 'cpp.project.wizard.welcome', {
+            dark: 'resources/icons/plugin.svg',
+            light: 'resources/icons/huaweiCpp.png'
+        }, 5);
     }
 
 }
